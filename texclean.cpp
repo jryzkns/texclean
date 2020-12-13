@@ -10,8 +10,8 @@ int main()
 		".aux", ".fdb_latexmk", ".fls", ".log", ".out", ".synctex.gz" };
 
 	boost::filesystem::path pwd = boost::filesystem::current_path();
-	boost::filesystem::recursive_directory_iterator itr(pwd);
-	while (itr != boost::filesystem::recursive_directory_iterator())
+	boost::filesystem::directory_iterator itr(pwd);
+	while (itr != boost::filesystem::directory_iterator())
 	{
 		auto f_path = itr->path().string();
 		if (std::any_of(exts.begin(), exts.end(), [&](std::string ext)
